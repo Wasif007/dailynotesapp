@@ -11,3 +11,25 @@ nav{
   text-align: center
 }
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+
+.container{
+  background-color: rgb(250, 241, 208);
+  width: 70%;
+  margin: auto;
+  min-height: 100vh;
+  padding: 4vmax;
+  box-sizing: border-box;
+}
+.container>form{
+  display: flex;
+  flex-direction: column;
+
+}
+.container>form>input,textarea,button{
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.392);
+  border-radius: 5px;
+}
+button{
+  border: none;
+}
