@@ -1,14 +1,17 @@
 import React from 'react'
 
 const Tasks = (props) => {
+    const {title,description,deleteArray,index}=props;
   return (
     <div className='tasks'>
         <div>
-            <p>{props.title}</p>
-        <span>{props.description}</span>
+            <p>{title}</p>
+        <span>{description}</span>
         </div>
         
-        <button>-</button>
+        <button onClick={()=>{
+            deleteArray(index);
+        }}>-</button>
     </div>
   )
 }

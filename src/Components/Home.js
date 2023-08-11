@@ -5,10 +5,15 @@ const Home = () => {
   const [titleSetting,setTitleSetting]=useState([]);
   const [title,setTitle]=useState("");
   const [description,setDescription]=useState("");
-  console.log(title,description);
 const onSubmitHandler=(e)=>{
 e.preventDefault();
 setTitleSetting([...titleSetting,{title,description}]);
+}
+const deleteArray=(index)=>{
+const filteredArray=titleSetting.filter((val,i)=>{
+  return i!==index;
+})
+setTitleSetting(filteredArray);
 }
   return (
     <div className='container'>
@@ -24,7 +29,7 @@ setTitleSetting([...titleSetting,{title,description}]);
                 <button>ADD</button>
             </form>
             {titleSetting.map((item,index)=>(
-              <Tasks key={index} title={item.title} description={item.description}/>
+              <Tasks key={index} title={item.title} description={item.description} deleteArray={deleteArray} index={index}/>
             ))}
             
       
