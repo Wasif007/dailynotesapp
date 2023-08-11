@@ -6,8 +6,9 @@ const Home = () => {
   const [title,setTitle]=useState("");
   const [description,setDescription]=useState("");
   console.log(title,description);
-const onSubmitHandler=()=>{
-
+const onSubmitHandler=(e)=>{
+e.preventDefault();
+setTitleSetting([...titleSetting,{title,description}]);
 }
   return (
     <div className='container'>
@@ -23,7 +24,7 @@ const onSubmitHandler=()=>{
                 <button>ADD</button>
             </form>
             {titleSetting.map((item,index)=>(
-              <Tasks key={index}/>
+              <Tasks key={index} title={item.title} description={item.description}/>
             ))}
             
       
