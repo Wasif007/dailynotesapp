@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Tasks = (props) => {
-    const {title,description}=props;
+    const {title,description,deleteNoteFunc,index}=props;
   return (
     
     <div className='tasks'>
@@ -9,7 +9,10 @@ const Tasks = (props) => {
       <p>{title}</p>
       <span>{description}</span>
     </div>
-    <button>-</button>
+    <button onClick={()=>{
+      console.log(index);
+      deleteNoteFunc(index);
+    }}>-</button>
     </div>
   )
 }

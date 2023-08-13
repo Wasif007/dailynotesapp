@@ -9,6 +9,12 @@ const Home = () => {
     e.preventDefault();
     setObjectArray([...objectArray,{title,description}]);
   }
+  const deleteNoteFunc=(index)=>{
+    const newArray=objectArray.filter((item,i)=>{
+      return index!==i
+    });
+    setObjectArray(newArray);
+  }
   return (
    <div className='container'>
     <form onSubmit={onSubmitHandler}>
@@ -22,7 +28,7 @@ const Home = () => {
     </form>
     {
       objectArray.map((item,index)=>
-      (<Tasks key={index} title={item.title} description={item.description}/>))
+      (<Tasks key={index} title={item.title} description={item.description} deleteNoteFunc={deleteNoteFunc} index={index}/>))
     }
 
    </div>
