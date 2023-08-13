@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Tasks from './Tasks'
 
 const Home = () => {
-  localStorage.setItem("tasks",[]);
-  const initialValue=localStorage.getItem("tasks")?JSON.parse(localStorage.getItem("tasks")):[];
+  const initialValue=localStorage.getItem("tasks")?JSON.parse(localStorage.getItem("tasks")):localStorage.setItem("tasks",[]);
   const [objectArray,setObjectArray]=useState(initialValue);
     useEffect(() => {
      localStorage.setItem("tasks",JSON.stringify(objectArray));
@@ -24,6 +23,7 @@ const Home = () => {
  
   return (
    <div className='container'>
+    <h1>Daily Goals</h1>
     <form onSubmit={onSubmitHandler}>
       <input placeholder='Title' value={title} onChange={(e)=>{
         setTitle(e.target.value);
