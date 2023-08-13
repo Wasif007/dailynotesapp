@@ -10,7 +10,6 @@ const Tasks = (props) => {
       <span>{description}</span>
     </div>
     <button onClick={()=>{
-      console.log(index);
       deleteNoteFunc(index);
     }}>-</button>
     </div>

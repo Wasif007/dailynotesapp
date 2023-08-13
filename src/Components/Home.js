@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Tasks from './Tasks'
 
 const Home = () => {
-  const [objectArray,setObjectArray]=useState([]);
+  localStorage.setItem("tasks",[]);
+  const initialValue=localStorage.getItem("tasks")?JSON.parse(localStorage.getItem("tasks")):[];
+  const [objectArray,setObjectArray]=useState(initialValue);
+    useEffect(() => {
+     localStorage.setItem("tasks",JSON.stringify(objectArray));
+   }, [objectArray]);
   const [title,setTitle]=useState("");
   const [description,setDescription]=useState("");
   const onSubmitHandler=(e)=>{
     e.preventDefault();
     setObjectArray([...objectArray,{title,description}]);
+    
   }
   const deleteNoteFunc=(index)=>{
     const newArray=objectArray.filter((item,i)=>{
@@ -15,6 +21,7 @@ const Home = () => {
     });
     setObjectArray(newArray);
   }
+ 
   return (
    <div className='container'>
     <form onSubmit={onSubmitHandler}>
