@@ -12,7 +12,8 @@ const Home = () => {
   const onSubmitHandler=(e)=>{
     e.preventDefault();
     setObjectArray([...objectArray,{title,description}]);
-    
+    setTitle("");
+    setDescription("");
   }
   const deleteNoteFunc=(index)=>{
     const newArray=objectArray.filter((item,i)=>{
